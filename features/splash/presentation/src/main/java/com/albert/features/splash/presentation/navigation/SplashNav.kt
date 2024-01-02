@@ -9,7 +9,6 @@ import androidx.navigation.navigation
 import com.albert.features.splash.presentation.listUsers
 import com.albert.features.splash.presentation.model.User
 import com.albert.features.splash.presentation.navigation.SplashArguments.LIST
-import com.albert.features.splash.presentation.navigation.SplashArguments.USER
 import com.albert.features.splash.presentation.navigation.SplashArguments.USER_NAME_ARG
 import com.albert.features.splash.presentation.navigation.SplashNavigation.NAVIGATION
 import com.albert.features.splash.presentation.navigation.SplashNavigation.ONBOARDING_SCREEN
@@ -32,7 +31,7 @@ object SplashArguments {
 }
 
 object SplashRoutes {
-    const val ONBOARDING_ROUTE = "$ONBOARDING_SCREEN/{$USER_NAME_ARG}/{$USER}/{$LIST}"
+    const val ONBOARDING_ROUTE = "$ONBOARDING_SCREEN/{$LIST}"
 }
 
 fun NavGraphBuilder.splashGraph(
@@ -52,36 +51,38 @@ fun NavGraphBuilder.splashGraph(
             SplashScreen(
                 onNextNavigationLogin = { userName ->
                     val gson = Gson()
-                    val userJson = gson.toJson(userDemo) // Usando Gson para convertir a JSON
                     val listJson = gson.toJson(listUsers) // Usando Gson para convertir a JSON
-                    navController.navigate("$ONBOARDING_SCREEN/$userName/$userJson/$listJson")
+                    navController.navigate("$ONBOARDING_SCREEN/$listJson")
                 }
             )
         }
         composable(
             ONBOARDING_ROUTE,
             arguments = listOf(
-                navArgument(USER_NAME_ARG) { type = NavType.StringType },
-                navArgument(USER) { type = NavType.StringType },
+                // navArgument(USER_NAME_ARG) { type = NavType.StringType },
+                //navArgument(USER) { type = NavType.StringType },
                 navArgument(LIST) { type = NavType.StringType }
             )
         ) { entry ->
 
             val gson = Gson()
-            val userJson = entry.arguments?.getString(USER)
-            val user = gson.fromJson(userJson, User::class.java)
+            // val userJson = entry.arguments?.getString(USER)
+            // val user = gson.fromJson(userJson, User::class.java)
             val listJson = entry.arguments?.getString(LIST)
             val list = gson.fromJson(listJson, Array<User>::class.java).toList()
 
 
-            entry.arguments?.getString(USER_NAME_ARG)?.let {
+            //entry.arguments?.getString(USER_NAME_ARG)?.let {
                 OnboardingScreen(
-                    userName = it,
-                    user = user,
+                    userName = "name",
+                    user = User(
+                        name = "Albert",
+                        email = "", password = "dasd"
+                    ),
                     list = list,
                     onNextNavigationLogin = onNextNavigationLogin
                 )
-            }
+            //}
         }
     }
 
