@@ -51,7 +51,7 @@ inline fun <reified T : Parcelable> ParcelableListNavType() =
     }
 
 
-inline fun <reified T : Parcelable>  Bundle?.getParcelableArrayListNavType(key: String): ArrayList<T>? {
+inline fun <reified T : Parcelable> Bundle?.getParcelableArrayListNavType(key: String): ArrayList<T>? {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         this?.getParcelableArrayList<T>(key, T::class.java)
     } else {

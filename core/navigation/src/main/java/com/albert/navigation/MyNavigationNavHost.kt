@@ -6,8 +6,8 @@ import androidx.navigation.compose.NavHost
 import com.albert.features.login.presentation.navigation.LoginScreen
 import com.albert.features.login.presentation.navigation.loginNavGraph
 import com.albert.features.splash.presentation.listUsers
-import com.albert.features.splash.presentation.navigation.SplashRoutes
 import com.albert.features.splash.presentation.navigation.SplashNavigation
+import com.albert.features.splash.presentation.navigation.SplashRoutes
 import com.albert.features.splash.presentation.navigation.splashNavGraph
 
 @Composable
