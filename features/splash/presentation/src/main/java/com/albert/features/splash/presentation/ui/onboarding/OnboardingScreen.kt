@@ -1,4 +1,4 @@
-package com.albert.features.splash.presentation.ui
+package com.albert.features.splash.presentation.ui.onboarding
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "298396350444",
+    "project_id": "baseproject-fa7bb",
+    "storage_bucket": "baseproject-fa7bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298396350444:android:bddc2a6d44df8c238272c9",
+        "android_client_info": {
+          "package_name": "com.albert.baseproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtJBjpa3z8ey6oePa8bqcnY1sO0OezqdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
